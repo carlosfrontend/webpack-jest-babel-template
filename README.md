@@ -2,11 +2,11 @@
 
 ## The Odin Project
 
-A simple desciption
+A simple description
 
 Links:
 
-:white_check_mark: [Assigments](!#) :blue_book:
+:white_check_mark: [Assignments](!#) :blue_book:
 
 :white_check_mark: [Live Preview](!#) :computer:
 
