@@ -1,34 +1,34 @@
-const path = require("path");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 
 module.exports = {
   optimization: {
     minimizer: [
       // For webpack@5 you can use the `...` syntax to extend existing minimizers (i.e. `terser-webpack-plugin`), uncomment the next line
-      `...`,
+      '...',
       new CssMinimizerPlugin(),
     ],
   },
   entry: {
-    battleship: "./src/index.js",
+    app: './src/index.js',
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: "./src/index.html",
-      favicon: "favicon.svg",
-      title: "",
-      inject: "body",
+      template: './src/index.html',
+      favicon: 'favicon.svg',
+      title: '',
+      inject: 'body',
     }),
     new MiniCssExtractPlugin({
-      filename: "[name][contenthash].css",
+      filename: '[name][contenthash].css',
     }),
     new CssMinimizerPlugin(),
   ],
   output: {
-    filename: "[name][contenthash].bundle.js",
-    path: path.resolve(__dirname, "dist"),
+    filename: '[name][contenthash].bundle.js',
+    path: path.resolve(__dirname, 'dist'),
     clean: true,
   },
   module: {
@@ -37,9 +37,9 @@ module.exports = {
         test: /\.(?:js|mjs|cjs)$/,
         exclude: /node_modules/,
         use: {
-          loader: "babel-loader",
+          loader: 'babel-loader',
           options: {
-            presets: [["@babel/preset-env", { targets: "defaults" }]],
+            presets: [['@babel/preset-env', { targets: 'defaults' }]],
           },
         },
       },
@@ -47,16 +47,16 @@ module.exports = {
         test: /\.css$/i,
         use: [
           MiniCssExtractPlugin.loader,
-          { loader: "css-loader", options: { sourceMap: true } },
+          { loader: 'css-loader', options: { sourceMap: true } },
         ],
       },
       {
         test: /\.(png|svg|jpg|jpeg|gif)$/i,
-        type: "asset/resource",
+        type: 'asset/resource',
       },
       {
         test: /\.(woff|woff2|eot|ttf|otf)$/i,
-        type: "asset/resource",
+        type: 'asset/resource',
       },
     ],
   },
